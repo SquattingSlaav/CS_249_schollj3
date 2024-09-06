@@ -19,7 +19,7 @@ test {
 }
 
 application {
-    mainClass = "edu.realemj.howdy.HowdyPrinter"
+    mainClass = "edu.schollj3.howdy.HowdyPrinter"
     mainModule = "howdy"
 }
 
