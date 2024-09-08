@@ -1,4 +1,4 @@
-package edu.realemj.exercises00;
+package edu.schollj3.exercises00;
 
 public class Nothing {
     public static void main(String [] args) {
