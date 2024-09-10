@@ -7,7 +7,7 @@ public class Nothing {
         Weapon w = new Weapon();
 
         NPC bob = new NPC();
-        NPC susan = new NPC();
+        NPC susan = new NPC("SUSAN");
 
         System.out.println("Bob's health: " + bob.getHealth());
 
