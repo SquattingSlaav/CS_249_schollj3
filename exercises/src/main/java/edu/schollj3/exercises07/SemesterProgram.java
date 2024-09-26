@@ -11,8 +11,8 @@ public class SemesterProgram {
         for(int i = 0; i < studentCnt; i++) {
             double r = Math.random();
             int score = 50 + (int)(51*r);
-            String letter = GradingUtil.getGradeLetter(score);
-            System.out.println("Student " + (i+1) + ": " + score + " (" + letter + ") ");
+            //String letter = GradingUtil.getGradeLetter(score);
+            //System.out.println("Student " + (i+1) + ": " + score + " (" + letter + ") ");
         }
     }
 }
