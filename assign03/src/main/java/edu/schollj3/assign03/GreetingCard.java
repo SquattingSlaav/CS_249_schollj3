@@ -55,15 +55,16 @@ public class GreetingCard {
 
         StringBuilder sb = new StringBuilder();
 
-        int lineC = 0;
-        int extraLineC = 0;
+        int lineC = 5;
+        int extraLines = 0;
         if (lineC % 5 == 0) {
+            lineC++;
             if (!sb.isEmpty()) {
                 sb.append("\n");
-                generateBoundaryLine();
-                generateBoundaryLine();
-                //compute lines left
             }
+            generateBoundaryLine();
+            generateBoundaryLine();
+
         }
         return sb.toString();
     }
