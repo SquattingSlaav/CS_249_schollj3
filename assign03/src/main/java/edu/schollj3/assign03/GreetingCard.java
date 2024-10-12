@@ -54,32 +54,30 @@ public class GreetingCard {
     }
 
     public String toString() {
-
         StringBuilder sb = new StringBuilder();
 
         int lineC = 0;
         int extraLineC = 0;
         int cards = (int)Math.ceil(cardLines.length/5.0);
         for(int i = 0; i < cards; i++) {
-            if (i % 5 == 0) {
-                if (!sb.isEmpty())
-                    sb.append("\n");
-            }
+            if (!sb.isEmpty())
+                sb.append("\n");
             generateBoundaryLine();
             generateBoundaryLine();
-            if (j > 0) {
-                lineC = cardLines.length - lineC;
-                extraLineC = j;
-            } else {
+
+            if (cardLines.length < 5) {
+                lineC = cardLines.length;
+                extraLineC = 5 - lineC;
+            }else{
                 lineC = 5;
                 extraLineC = 0;
             }
 
-            for (int k = 0; k < lineC; k++) {
+            for (int j = 0; j < lineC; j++) {
                 sb.append(cardLines[j]);
             }
 
-            for (int k = 0; k < extraLineC; k++) {
+            for (int j = 0; j < extraLineC; j++) {
                 generateBoundaryLine();
             }
             generateBoundaryLine();
