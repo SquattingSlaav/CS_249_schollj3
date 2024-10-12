@@ -16,14 +16,13 @@ public class Hallmark {
         for(int i = 0; i < lineC; i++) {
             allLines[i] = input.nextLine();
         }
-        GreetingCard card = new GreetingCard(allLines, boundChar);
-        return card;
+        return new GreetingCard(allLines, boundChar);
     }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        GreetingCard card = generateCard(in);
+        GreetingCard n = generateCard(in);
         System.out.println("For any occasion:");
-        System.out.println(card);
+        System.out.println(n);
     }
 }

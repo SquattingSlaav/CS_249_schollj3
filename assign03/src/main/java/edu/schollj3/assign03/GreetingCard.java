@@ -17,6 +17,7 @@ public class GreetingCard {
         StringBuilder sb = new StringBuilder();
         for (String line : cardLines) {
             sb.append(line);
+            sb.append("\n");
         }
         return sb.toString();
     }
@@ -39,33 +40,52 @@ public class GreetingCard {
 
     public String generateCenteredLine(String text) {
         StringBuilder sb = new StringBuilder();
-        if(text.length() > 0)
+        if(!text.isEmpty())
             text = " " + text + " ";
         int padding = 50 - text.length();
-        sb.repeat(boundChar, (int)(0.5 * padding));
+        int padding1 = padding / 2;
+        int padding2 = padding - padding1;
+        sb.repeat(boundChar, padding1);
         sb.append(text);
-        sb.repeat(boundChar, (int)(0.5 * padding));
+        sb.repeat(boundChar, padding2);
         sb.append("\n");
+
         return sb.toString();
     }
 
     public String toString() {
-        final int width = 50;
-        final int height = 9;
 
         StringBuilder sb = new StringBuilder();
 
-        int lineC = 5;
-        int extraLines = 0;
-        if (lineC % 5 == 0) {
-            lineC++;
-            if (!sb.isEmpty()) {
-                sb.append("\n");
+        int lineC = 0;
+        int extraLineC = 0;
+        int cards = (int)Math.ceil(cardLines.length/5.0);
+        for(int i = 0; i < cards; i++) {
+            if (i % 5 == 0) {
+                if (!sb.isEmpty())
+                    sb.append("\n");
             }
             generateBoundaryLine();
             generateBoundaryLine();
+            if (j > 0) {
+                lineC = cardLines.length - lineC;
+                extraLineC = j;
+            } else {
+                lineC = 5;
+                extraLineC = 0;
+            }
 
+            for (int k = 0; k < lineC; k++) {
+                sb.append(cardLines[j]);
+            }
+
+            for (int k = 0; k < extraLineC; k++) {
+                generateBoundaryLine();
+            }
+            generateBoundaryLine();
+            generateBoundaryLine();
         }
+
         return sb.toString();
     }
 }
