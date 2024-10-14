@@ -58,6 +58,7 @@ public class GreetingCard {
 
         int lineC = 0;
         int extraLineC = 0;
+        int left = cardLines.length;
         int cards = (int)Math.ceil(cardLines.length/5.0);
         for(int i = 0; i < cards; i++) {
             if (!sb.isEmpty())
@@ -65,12 +66,14 @@ public class GreetingCard {
             generateBoundaryLine();
             generateBoundaryLine();
 
-            if (cardLines.length < 5) {
-                lineC = cardLines.length;
+            if (left < 5) {
+                lineC = left;
                 extraLineC = 5 - lineC;
+                left -= lineC;
             }else{
                 lineC = 5;
                 extraLineC = 0;
+                left -= 5;
             }
 
             for (int j = 0; j < lineC; j++) {
