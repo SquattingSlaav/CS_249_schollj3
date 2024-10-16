@@ -56,8 +56,8 @@ public class GreetingCard {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        int lineC = 0;
-        int extraLineC = 0;
+        int lineC;
+        int extraLineC;
         int left = cardLines.length;
         int cards = (int)Math.ceil(cardLines.length/5.0);
         for(int i = 0; i < cards; i++) {

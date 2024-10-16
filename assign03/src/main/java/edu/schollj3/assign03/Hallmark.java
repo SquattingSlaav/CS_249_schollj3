@@ -13,7 +13,7 @@ public class Hallmark {
 
         String[] allLines = new String[lineC];
         System.out.println("Enter lines:");
-        for(int i = 0; i < lineC; i++) {
+        for(int i = 0; i < lineC-1; i++) {
             allLines[i] = input.nextLine();
         }
         return new GreetingCard(allLines, boundChar);
