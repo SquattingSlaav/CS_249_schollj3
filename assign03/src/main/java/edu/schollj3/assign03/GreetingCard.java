@@ -60,31 +60,33 @@ public class GreetingCard {
         int extraLineC;
         int left = cardLines.length;
         int cards = (int)Math.ceil(cardLines.length/5.0);
-        for(int i = 0; i < cards; i++) {
+        int C = 0;
+        for (int i = 0; i < cards; i++) {
             if (!sb.isEmpty())
                 sb.append("\n");
-            generateBoundaryLine();
-            generateBoundaryLine();
+            sb.append(generateBoundaryLine());
+            sb.append(generateBoundaryLine());
 
             if (left < 5) {
                 lineC = left;
                 extraLineC = 5 - lineC;
                 left -= lineC;
-            }else{
+            } else {
                 lineC = 5;
                 extraLineC = 0;
                 left -= 5;
             }
 
-            for (int j = 0; j < lineC; j++) {
-                sb.append(cardLines[j]);
-            }
+            for (int j = 0; j < lineC; j++)
+                if (!(cardLines[j + C] == null))
+                    sb.append(generateCenteredLine(cardLines[j + C]));
+                else sb.append(generateCenteredLine(""));
 
-            for (int j = 0; j < extraLineC; j++) {
-                generateBoundaryLine();
-            }
-            generateBoundaryLine();
-            generateBoundaryLine();
+            C+= 5;
+
+            for (int j = 0; j < extraLineC; j++) sb.append(generateBoundaryLine());
+            sb.append(generateBoundaryLine());
+            sb.append(generateBoundaryLine());
         }
 
         return sb.toString();
