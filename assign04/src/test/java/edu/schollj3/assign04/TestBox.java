@@ -1,4 +1,4 @@
-package edu.realemj.assign04;
+package edu.schollj3.assign04;
 import org.testng.Assert;
 import org.testng.annotations.*;
 public class TestBox {
