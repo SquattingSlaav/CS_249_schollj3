@@ -5,7 +5,17 @@ import edu.realemj.exercises03.Supplies;
 
 public class OregonTrail {
     public static void main(String [] args) {
+        System.out.println("Arg cnt: " + args.length);
+        for(int i = 0; i < args.length; i++) {
+            System.out.println(i + ": " + args[i]);
+        }
+
+
         Scanner input = new Scanner(System.in);
+
+        // Set who is in the party
+        Party party = Party.askForPartyMembers(input);
+
         // Set the starting supplies
         Supplies supplies = new Supplies();
 
@@ -14,13 +24,11 @@ public class OregonTrail {
         supplies.addFood(food);
         System.out.println(supplies);
 
-        // TODO: Set who is in the party
-        Party party = new Party();
-
         int milesTraveled = 0;
         double rations = 7;
-        int pace = 5;
         int dayCnt = 0;
+
+        WagonPace pace = WagonPace.NORMAL;
 
         // While we're not dead and not there yet
         while(!isGameOver(party, supplies, milesTraveled)) {
@@ -31,7 +39,7 @@ public class OregonTrail {
                                         rations);
 
             // Add to distance
-            milesTraveled += pace;
+            milesTraveled += (int)pace.getMilesPerDay();
 
             // Add to day count
             dayCnt++;
@@ -44,7 +52,22 @@ public class OregonTrail {
 
             // Print status
             printStatus(dayCnt, milesTraveled,
-                        party, supplies);
+                        party, supplies, pace);
+
+            // Ask for change of pace
+            System.out.println("Change pace? [y/n]");
+            String ans = input.next();
+            if(ans.equals("y")) {
+                System.out.println("Select pace:");
+                for(int i = 0; i < WagonPace.values().length; i++) {
+                    System.out.println((i+1) + ": "
+                            + WagonPace.values()[i]);
+                }
+                int choice = input.nextInt();
+                choice--;
+                pace = WagonPace.values()[choice];
+                System.out.println("NEW PACE: " + pace);
+            }
         }
 
         // Are ya winning son?
@@ -79,12 +102,13 @@ public class OregonTrail {
                             int dayCnt,
                             int milesTraveled,
                             Party party,
-                            Supplies supplies) {
+                            Supplies supplies,
+                            WagonPace pace) {
         String boundary = "*********************";
         System.out.println(boundary);
         System.out.println("DAY " + dayCnt);
         System.out.println(boundary);
-
+        System.out.println("CURRENT PACE: " + pace);
         System.out.println("Traveled " + milesTraveled + " miles.");
         System.out.println(supplies);
         System.out.println(party);
