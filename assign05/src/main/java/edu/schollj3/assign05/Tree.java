@@ -13,6 +13,6 @@ public class Tree extends Giant {
     }
 
     public String speak() {
-        return "<rustling";
+        return "<rustling>";
     }
 }

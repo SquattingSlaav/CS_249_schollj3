@@ -7,7 +7,7 @@ public class Giant {
         setName(name);
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
