@@ -14,7 +14,7 @@ public class Tome extends Item {
         this.skill = skill;
     }
 
-    public String getskill() {
+    public String getSkill() {
         return skill;
     }
 
@@ -23,7 +23,7 @@ public class Tome extends Item {
     }
 
     public void read() {
-        System.out.println("Skill: " + skill + " increased!");
+        System.out.println("Skill " + skill + " increased!");
     }
 
     public String toString() {
@@ -40,7 +40,7 @@ public class Tome extends Item {
             ID = "";
             value = 0;
             skill = "";
-            throw new GameFileException("Error loading Tome: " + e.getMessage());
+            throw new GameFileException("Error loading Tome");
         }
     }
 }

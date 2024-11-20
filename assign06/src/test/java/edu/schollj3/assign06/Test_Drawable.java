@@ -1,5 +1,5 @@
 package edu.schollj3.assign06;
-import edu.realemj.assign04.GameBoard;
+import edu.schollj3.assign04.GameBoard;
 //NOTE: CHANGE realemj to YOUR SITNETID!!!
 import org.testng.annotations.Test;
 

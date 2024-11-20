@@ -1,5 +1,7 @@
 package edu.schollj3.assign06;
 
+import edu.schollj3.assign04.GameBoard;
+
 public class Skeleton extends Creature {
     public Skeleton() {}
 
@@ -9,5 +11,9 @@ public class Skeleton extends Creature {
         StringBuilder sb = new StringBuilder();
         sb.append("Skeleton at " + getRow() + "," + getCol());
         return sb.toString();
+    }
+
+    public void draw(GameBoard map) {
+        map.setPos(row, col, 'S');
     }
 }
