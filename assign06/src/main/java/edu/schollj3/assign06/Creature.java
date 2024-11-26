@@ -29,7 +29,9 @@ public abstract class Creature implements Loadable, Drawable {
             row = input.nextInt();
             col = input.nextInt();
         } catch (Exception e) {
-            throw new GameFileException("Error loading Creature");
+            row = 0;
+            col = 0;
+            throw new GameFileException("Error loading Creature",  e);
         }
     }
 }

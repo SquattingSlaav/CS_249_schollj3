@@ -40,7 +40,7 @@ public class Tome extends Item {
             ID = "";
             value = 0;
             skill = "";
-            throw new GameFileException("Error loading Tome");
+            throw new GameFileException("Error loading Tome", e);
         }
     }
 }

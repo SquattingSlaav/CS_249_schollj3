@@ -62,7 +62,7 @@ GameBoard baseMap = new GameBoard(12, 30, '.');
             writer.print(this.toString());
             writer.close();
         }catch (Exception e) {
-            throw new GameFileException("Failed to save file!");
+            throw new GameFileException("Failed to save file!",  e);
         }
     }
 }
