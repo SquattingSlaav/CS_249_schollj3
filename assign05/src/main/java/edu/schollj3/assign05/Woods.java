@@ -3,7 +3,7 @@ package edu.schollj3.assign05;
 import java.util.*;
 
 public class Woods {
-    ArrayList<Giant> giants = new ArrayList<>();
+    private ArrayList<Giant> giants = new ArrayList<>();
 
     public Giant createGiant(String name, String typeName) {
         if(name.isEmpty()) {
