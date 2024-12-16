@@ -6,8 +6,8 @@ import java.io.PrintWriter;
 import java.util.*;
 
 public class GameState implements Loadable {
-ArrayList<Loadable> loadables = new ArrayList<>();
-GameBoard baseMap = new GameBoard(12, 30, '.');
+    private ArrayList<Loadable> loadables = new ArrayList<>();
+    private GameBoard baseMap = new GameBoard(12, 30, '.');
 
     public Loadable createLoadable(String typeName) throws GameFileException {
         return switch (typeName) {
